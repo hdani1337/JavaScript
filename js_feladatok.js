@@ -1,4 +1,4 @@
-//PROGRAMOZÁS GYAKORLAT (MARANCSICS TAMÁS)
+//PROGRAMOZÁS GYAKORLAT
 function vel(a,b){
   return Math.floor(Math.random() * (b-a+1)+a);
 }
@@ -88,7 +88,7 @@ function helyiertek_3(){
   kiir("A számjegyek összege: " + osszeg + "\n");
 }
 
-//PROGRAMOZÁS ELMÉLET (BECK SÁNDOR)
+//PROGRAMOZÁS ELMÉLET
 
 var szamokT = [342,21,33,11,1,77,987,3,2];
 
