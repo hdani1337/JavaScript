@@ -1,0 +1,34 @@
+body{
+    width: 99%;
+    height: 97%;
+    background-image: linear-gradient(#808080,#404040);
+}
+
+#hazi{
+    position: absolute;
+    height: 97%;
+    width: 25%;
+    top: 10px;
+    resize: none;
+    background-image: linear-gradient(#cccccc,#a6a6a6);
+    font-family: 'Trebuchet MS';
+}
+
+h1{
+    position: absolute;
+    left: 27%;
+    top: 0px;
+    font-family: 'Trebuchet MS';
+}
+
+button{
+    position: relative;
+    left: 27%;
+    top: 40px;
+    background-image: linear-gradient(#ccffff,#e6ffff);
+    border: 2px solid #b3ffff;
+}
+
+button:hover{
+    background-image: linear-gradient(#66ffff);
+}
