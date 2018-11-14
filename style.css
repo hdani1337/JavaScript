@@ -7,7 +7,7 @@ body{
 #hazi{
     position: absolute;
     height: 97%;
-    width: 25%;
+    width: 35%;
     top: 10px;
     resize: none;
     background-image: linear-gradient(#cccccc,#a6a6a6);
@@ -16,14 +16,14 @@ body{
 
 h1{
     position: absolute;
-    left: 27%;
+    left: 37%;
     top: 0px;
     font-family: 'Trebuchet MS';
 }
 
 button{
     position: relative;
-    left: 27%;
+    left: 37%;
     top: 40px;
     background-image: linear-gradient(#ccffff,#e6ffff);
     border: 2px solid #b3ffff;
