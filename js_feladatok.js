@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //PROGRAMOZÁS GYAKORLAT (MARANCSICS TAMÁS)
 function vel(a,b){
   return Math.floor(Math.random() * (b-a+1)+a);
@@ -170,8 +169,7 @@ function kivalasztas(T){
     }
 	}
 	kiir("Kivalasztas tétele: "+ keresendo + " pozíciója: " + poz + "\n")
-}
-=======
+
 //PROGRAMOZÁS GYAKORLAT (MARANCSICS TAMÁS)
 function vel(a,b){
   return Math.floor(Math.random() * (b-a+1)+a);
@@ -328,7 +326,7 @@ function eldontes(T){
 		}
 	}
 	kiir("Eldöntés tétele: "+ keresendo + " benne van a tömbben? " + eredmeny + "\n")
-
+}
 }
 function kivalasztas(T){
 	var keresendo = 23;
@@ -344,4 +342,3 @@ function kivalasztas(T){
 	}
 	kiir("Kivalasztas tétele: "+ keresendo + " pozíciója: " + poz + "\n")
 }
->>>>>>> da57d16114992266fe6dc9dfec928f6f0141f057
