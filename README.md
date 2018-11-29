@@ -1,6 +1,8 @@
 # hdani1337-JavaScript
 JavaScript feladatok gyűjteménye
 
+Ide csak a feladatok vannak kigyűjtve, minden információ és komment bent van a JavaScriptben. 
+
 Gyakorlat: 
 
 1. Generáljunk egy véletlenszerű számot 100 és 999 között, majd adjuk össze a számjegyeket
@@ -10,7 +12,6 @@ Gyakorlat:
 
 Elmélet:
 
-A feladatok elkezdése előtt készítünk egy tömböt.
 
 1. Írjuk ki a tömb elemeit
 2. Adjuk össze a tömb elemeit
