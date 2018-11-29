@@ -16,3 +16,6 @@ Elmélet:
 4. Számoljuk meg, hány eleme van a tömbnek amik megfelelnek a feltételnek
 5. Vizsgáljuk meg, hogy az adott szám benne van e a tömbben
 6. Mondjuk meg, hogy a keresendő számnak mennyi a pozíciója
+7. Kiválogatjuk a 42 (élet értelme) alatti számokat
+8. Kiválogatjuk a 42 (élet értelme) alatti számokat egy másik módszerrel
+9. Szétválogatjuk, hogy melyik szám felelt meg a feltételnek és melyik nem
