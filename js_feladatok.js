@@ -65,7 +65,7 @@ function elso(){
       }
     }
   }
-  kiir("Ötre végződő számok:" + ottel);
+  kiir("Ötre végződő háromjegyű számok:" + ottel + "\n");
 }
 
 function helyiertek_3(){
