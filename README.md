@@ -10,6 +10,8 @@ Gyakorlat:
 
 Elmélet:
 
+A feladatok elkezdése előtt készítünk egy tömböt.
+
 1. Írjuk ki a tömb elemeit
 2. Adjuk össze a tömb elemeit
 3. Számoljuk meg, hány eleme van a tömbnek
