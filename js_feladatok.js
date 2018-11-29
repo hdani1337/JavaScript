@@ -209,5 +209,7 @@ function szetvalogatas(T){
 		}
 		
 	}
-	kiir("Szétválogatás tétele: " + megfelelt + "\n");
+	kiir("Szétválogatás tétele: ");
+	kiir("Megfelelt számok: " + megfelelt);
+	kiir("Nem megfelelt számok: " + nemMegfelelt + "\n");
 }
