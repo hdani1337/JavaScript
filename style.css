@@ -32,3 +32,12 @@ button{
 button:hover{
     background-image: linear-gradient(#66ffff);
 }
+
+p{
+	position: relative;
+	left: 36.91%;
+	width: 40%;
+	top: 6%;
+	font-size: 160%;
+	font-family: Trebuchet MS;
+}
