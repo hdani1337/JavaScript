@@ -39,7 +39,7 @@ function helyiertek_1(){//adjuk össze egy random szám számjegyeit addig, amí
 		var megyes = m%10; //második számnak az egyes helyi értéke
 		m = m/10;
 		m = m-megyes/10;
-		
+
 		var o = mtizes+megyes; //a második szám jegyeit is összeadom, ez biztos hogy egy jegyű lesz (999->27->9)
 			kiir("Második szám helyi értékeinek összeadva: " + o + "\n");
 		}
@@ -91,6 +91,113 @@ function helyiertek_3(){
   kiir("A számjegyek külön: " + ezres + " " + szazas + " " + tizes + " " + egyes);
   kiir("A számjegyek összege: " + osszeg + "\n");
 }
+
+function tombok2(){
+  var tomb2 = [];
+  for(i=0;i<10;i++){
+    tomb2.push(vel(1,1000));
+  }
+  kiir("Második tömb: " + tomb2 + "\n");
+}
+
+function tombok3(){
+  var tomb3 = [];
+  for(i=0;i<10;i++){
+    tomb3.push(vel(1,100));
+  }
+  kiir("Harmadik tömb: " + tomb3 + "\n");
+}
+
+function osszefesules(){
+  var t = [];
+  var index = 0;
+
+  var t1 = [];
+  for(i=0;i<10;i++){
+    t1.push(vel(1,1000));
+  }
+  var t2 = [];
+  for(i=0;i<10;i++){
+    t2.push(vel(1,100));
+  }
+
+  for(i=0;i<t1.length;i++){
+    if(!t.includes(t1[i])){
+      t[index++] = t1[i];
+    }
+  }
+
+  for(i=0;i<t2.length;i++){
+    if(!t.includes(t2[i])){
+      t[index++] = t2[i];
+    }
+  }
+  kiir("Összefésült tömb: " + t + "\n");
+}
+
+function metszet(){
+  var t = [];
+  var index = 0;
+
+  var t1 = [];
+  for(i=0;i<10;i++){
+    t1.push(vel(1,1000));
+  }
+  var t2 = [];
+  for(i=0;i<10;i++){
+    t2.push(vel(1,100));
+  }
+
+  for(i=0;i<t1.length;i++){
+    if(!t.includes(t1[i]) && !t.includes(t2[i])){
+      t[index++] = t1[i];
+    }
+  }
+  kiir("Metszet: " + t + "\n");
+}
+
+function lotto(){
+  //Ötös lottó
+  var lTomb = [];
+  var index = 0;
+
+  kiir("A géppel kihúzott lottószámok: ");
+
+  for(i=0;i<5;i++){
+    lTomb += vel(1,90);
+
+    if(i<4){
+      kiir(lTomb[i] + ", ");
+    }
+    else{
+      kiir(lTomb[i]);
+    }
+  }
+}
+
+function keziLotto(){
+  var lTomb = [];
+  var index = 0;
+  var temp = document.getElementById("be");
+  var temp2;
+  if(temp.value==""){
+    kiir("Adjon meg 5 számot!" + "\n");
+  }
+
+  else{
+    var tempT = [];
+    temp.value.replace(/blue/gi, "");
+    tempT += temp.value;
+    if(tempT.includes("undefined")){
+      kiir("Kevés számot adott meg!" + "\n");
+      }
+    else{
+      kiir("A kézi lottó nyerőszámai: " +);
+      }
+    }
+    kiir("\n");
+  }
+
 
 //PROGRAMOZÁS ELMÉLET (BECK SÁNDOR)
 
@@ -215,7 +322,7 @@ function szetvalogatas(T){
 		}else{
 			nemMegfelelt.push(T[i]); //Számok beírása a nemMegfelelt tömbbe
 		}
-		
+
 	}
 	kiir("Szétválogatás tétele: ");
 	kiir("Megfelelt számok: " + megfelelt);
