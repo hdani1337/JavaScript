@@ -3,9 +3,9 @@ function vel(a,b){
   return Math.floor(Math.random() * (b-a+1)+a); //random szám a és b között
 }
 
-function kiir(u){
-	var x = document.getElementById("hazi"); //elkérjük a textareat, mert egyszerűbb az x-et beírni mint a document.getElementById-t
-	x.value += u + "\n"; //hozzáadjuk az üzenetet a textareához
+function kiir(temp){//létrehozunk egy kiír metódust, mert egyszerűbb így kiírni az üzenetet: kiir("valami"), mint így: document.getElementById("hazi").value += "valami"
+	var x = document.getElementById("hazi"); //elkérjük a textareat, mert egyszerűbb az x-et beírni mint a document.getElementById-t, bár tökmindegy, mert csak itt kell leírnunk
+	x.value += temp + "\n"; //hozzáadjuk az üzenetet a textareához és mindenki boldog
 }
 
 function helyiertek_1(){//adjuk össze egy random szám számjegyeit addig, amíg nem kapunk egyetlen számjegyet
@@ -162,8 +162,8 @@ function metszet(t1,t2){
 }
 
 function lotto(){//5-ös lottó JavaScriptben, az első húzás géppel történik, a második őedig kézzel
-	var szamok = document.getElementById("be").value;
-	if (szamok.length > 0 &&szamok.indexOf(",")> -1 && szamok.split(",").length == 5){
+	var szamok = document.getElementById("be").value;//elkérjük az input mezőnk értékét
+	if (szamok.length > 0 && szamok.indexOf(",") > -1 && szamok.split(",").length == 5){
 		var valasztottSzamok = lottoSzamokPassed(szamok.split(","));
 		if (valasztottSzamok.length != 5){//ha nem 5 szám van, akkor hibás számokat adott meg a felhasználó
 			kiir("Hibás számokat adtál meg!" + "\n");
@@ -187,14 +187,14 @@ function lotto(){//5-ös lottó JavaScriptben, az első húzás géppel történ
 		
 }
 
-    //GÉPI LOTTÓ ELEJE
+    //GÉPI LOTTÓ METÓDUSAINAK ELEJE
     function lottoSzamokGeneralasa(tipus){//a típus az lehet ötös, hatos, vagy hatszázezerkilencvenkettes lottó is
       var t = [];//üres tömb, ebbe jönnek a számok
       var index = 0;//érthető..
       var n = 0;//ez lesz a véletéen számunk
-      do{//hátultesztelős ciklussal futtassuk le
+      do{//hátultesztelős ciklussal futtatjuk le gyakorlásképpen, de elöltesztelőssel is tökéletesen megoldható
         n= vel(1,90);//létrehozunk egy véletlen számot 1 és 90 között (típus) alkalommal
-        if (!t.includes(n)){
+        if(!t.includes(n)){
           t[index++] = n;//ha nincs benne a tömbben, hozzáadjuk
           
         }		
@@ -208,14 +208,17 @@ function lotto(){//5-ös lottó JavaScriptben, az első húzás géppel történ
       var index = 0;//érthető..
       for(var i=0;i<t.length;i++){
         n = parseInt(t[i]);//számmá alakítjuk a tömböt
-        if (n==NaN || n<=0 || n>90)//ha betű, 0-nál kisebb-egyenlő szám vagy 90-nél nagyobb szám szerepel benne, akkor ne adjon vissza semmit
+        if (n==NaN || n<=0 || n>90){//ha betű, 0-nál kisebb-egyenlő szám vagy 90-nél nagyobb szám szerepel benne, akkor ne adjon vissza semmit
           return null;
-        else if (!tomb.includes(n))//ha a tömbben nincs benne az n, akkor
+        }
+        else if (!tomb.includes(n)){//ha a tömbben nincs benne az n, akkor
           tomb[index++] = n;//rakja bele a tömbbe
+        }
       }	
       return tomb;//adja vissza a tömböt
     }
-    //GÉPI LOTTÓ VÉGE
+    //GÉPI LOTTÓ METÓDUSAINAK VÉGE
+
 
 //PROGRAMOZÁS ELMÉLET (BECK SÁNDOR)
 
@@ -223,7 +226,7 @@ var szamokT = [342,21,33,11,1,77,987,3,2]; //ezzel a tömbbel fogunk dolgozni
 var megfelelt = []; //A kiválogatás két módszerénél és a szétválogatásnál lesz rá szükség. Ebbe a tömbbe kerülnek azok a számok, amik megfeleltek a feltételnek.
 var nemMegfelelt = []; //A szétválogatásnál lesz rá szükség. Ebbe a tömbbe kerülnek azok a számok, amik nem feleltek meg a feltételnek.
 
-function tombKiir (t){//kiírjuk a tömb elemeit
+function tombKiir(t){//kiírjuk a tömb elemeit
     var ki=""; //Mivel lusták vagyunk, egyszerűbb az ideiglenes üzeneteket egy külön változóba eltárolni, mert ezt egyszerűbb lesz kiiratni
     for(var i =0;i<t.length;i++){
 			if(i<(t.length-1)){
@@ -244,8 +247,9 @@ function osszegzes(T){//Összeadjuk a tömb számait
 
 	}
 	ki +=  osszeg; //az ideiglenes változónkba berakjuk az összeget, bár itt ennek még nincs sok értelme, ez csak szemléltetés
-    kiir("Összegzés tétele: " + ki + "\n")
+    kiir("Összegzés tétele: " + ki + "\n");
 }
+
 function elemSzam(T){//Tömb elemeinek darabszáma
 	var ki = ""; //Mivel lusták vagyunk, egyszerűbb az ideiglenes üzeneteket egy külön változóba eltárolni, mert ezt egyszerűbb lesz kiiratni
 	var darab = 0; //gondolom egyértelmű
@@ -253,47 +257,48 @@ function elemSzam(T){//Tömb elemeinek darabszáma
 		darab++; //ahányszor lefut a ciklus, annyiszor növeli a darabszámot 1-gyel
 
 	}
-	ki +=  darab;
-    kiir("Tömb elemeinek száma: " + ki + "\n")
+	ki +=  darab;//a ki-hez hozzáadjuk a darabszámot
+    kiir("Tömb elemeinek száma: " + ki + "\n");
 }
+
 function megszamlalas(T){
 	var ki = ""; //Mivel lusták vagyunk, egyszerűbb az ideiglenes üzeneteket egy külön változóba eltárolni, mert ezt egyszerűbb lesz kiiratni
 	var hatarertek = 50; //a számunk határértéke, ezt később a ciklusban adjuk meg, hogy ennél kisebbnek kell lennie
 	var darab = 0; //gondolom egyértelmű
 	ki += hatarertek + " alatti számok: ";
 	for(var i = 0;i<T.length;i++){//Tömb elemeinek száma egy feltétel alapján
-		if(T[i]<hatarertek){
+		if(T[i]<hatarertek){//ha a tömb i-dik eleme kisebb, mint a határárték, akkor...
 			ki += T[i] + " "; //kiírom a feltételnek megfelelt számokat
 			darab++; //növelem a darabszámot, ami majd a feltételnek megfelelt számok darabszámát fogja majd megadni
 		}
 	}
-    kiir("Tömb elemei egy feltétel alapján: " + ki)
-    kiir("Tömb elemeinek száma egy feltétel alapján: " + darab + "\n")
+    kiir("Tömb elemei egy feltétel alapján: " + ki);
+    kiir("Tömb elemeinek száma egy feltétel alapján: " + darab + "\n");
 }
-function eldontes(T){
+
+function eldontes(T){//megnézzük, hogy benne van e a tömbben vagy nincs
 	var keresendo = 33; //33-at keressük
 	var buli = false; //Ez azért kell, mert igaz vagy hamis lehet az értéke, és ezt könnyen megtudjuk majd vizsgálni
   var eredmeny; //egyszerűbb egy változóba beleírni hogy a számb bent van e a tömbben vagy nincs, minthogy mindenhova meghívnánk a kiír metódusunkat
 	for (var i=0;i<T.length;i++){
-		if(keresendo==T[i]){
-			buli = true;
-				//Keresünk egy számot a tömbben. Ha a szám bent van a tömbben, akkor buli igaz lesz.
+		if(keresendo==T[i]){//ha a keresendő szám ugyanaz, mint a tömb i-dik eleme (bent van a tömbben), akkor...
+			buli = true;//a buli igaz lesz
 
-      if(buli==true){
-        eredmeny = "Benne van."; //Ha a buli igaz, akkor azt írjuk ki, hogy "Benne van"
+      if(buli==true){//Ha a buli igaz, akkor...
+        eredmeny = "Benne van."; //írjuk ki, hogy "Benne van"
         break; //Álljon meg a ciklus
         }
 
-      else{
-        eredmeny = "Nincs benne."; //Ha nem igaz, akkor pedig "Nincs benne"
+      else{//Ha a buli nem igaz...
+        eredmeny = "Nincs benne."; //akkor pedig "Nincs benne"
         break; //Álljon meg a ciklus
         }
 		}
 	}
-	kiir("Eldöntés tétele: "+ keresendo + " benne van a tömbben? " + eredmeny + "\n")
-
+	kiir("Eldöntés tétele: "+ keresendo + " benne van a tömbben? " + eredmeny + "\n");
 }
-function kivalasztas(T){
+
+function kivalasztas(T){//pozícionálás, keresés
 	var keresendo = 23; //23-at keressük
 	var poz = -1; //a 0-dik pozíció az a -1, mivel az első számnak 0 a pozíciója
 	for (var i=0;i<T.length;i++){
@@ -305,42 +310,44 @@ function kivalasztas(T){
       poz = "A keresendő szám nincs benne a tömbben." //Lehet, hogy a szám nincs benne a tömbben
     }
 	}
-	kiir("Kivalasztas tétele: "+ keresendo + " pozíciója: " + poz + "\n")
+	kiir("Kivalasztas tétele: "+ keresendo + " pozíciója: " + poz + "\n");
 }
 
-function kivalogatas(T){
+function kivalogatas(T){//kiválogatjuk a határérték alatti számokat
 	var hatarertek = 42; //a számunk határértéke, ezt később a ciklusban adjuk meg, hogy ennél kisebbnek kell lennie
-	var index = 0;
-	megfelelt.length= 0; //kiürítjük a megfelelt tömböt
+	var index = 0; //index, amit növelni fogunk
+	megfelelt.length = 0; //kiürítjük a megfelelt tömböt
 	for(var i= 0; i<T.length; i++){//kiválogatjuk a 42 alatti számokat
-		if(T[i]<hatarertek){
-			megfelelt[index]= T[i]; //Számok beírása a megfelelt tömbbe
+		if(T[i]<hatarertek){//Ha a tömb i-dik eleme kisebb a határértéknél, akkor...
+			megfelelt[index] = T[i]; //Számok beírása a megfelelt tömbbe
 			index++; //Index növelése
 		}
 	}
 	kiir("Kiválogatás első módszere: " + megfelelt + "\n");
 }
-function kivalogatas2(T){ //ugyanazt csinálja, mint az első, csak egy másik módszerrel
+
+function kivalogatas2(T){//ugyanazt csinálja, mint az első, csak egy másik módszerrel
 	var hatarertek = 42; //a számunk határértéke, ezt később a ciklusban adjuk meg, hogy ennél kisebbnek kell lennie
-	megfelelt.length= 0; //kiürítjük a megfelelt tömböt
-	for(var i= 0; i<T.length; i++){
-		if(T[i]<hatarertek){
+	megfelelt.length = 0; //kiürítjük a megfelelt tömböt
+	for(var i= 0; i<T.length; i++){//kiválogatjuk a 42 alatti számokat
+		if(T[i]<hatarertek){//Ha a tömb i-dik eleme kisebb a határértéknél, akkor...
 			megfelelt.push(T[i]); //Számok beírása a megfelelt tömbbe
 		}
 	}
 	kiir("Kiválogatás második módszere: " + megfelelt + "\n");
 }
-function szetvalogatas(T){
+
+function szetvalogatas(T){//külön elrakjuk a megfelelt és a nem megfelelt számokat 
 	var hatarertek = 42; //a számunk határértéke, ezt később a ciklusban adjuk meg, hogy ennél kisebbnek kell lennie
-	megfelelt.length= 0; //kiürítjük a megfelelt tömböt
-	nemMegfelelt.length= 0; //kiürítjük a nemMegfelelt tömböt
+	megfelelt.length = 0; //kiürítjük a megfelelt tömböt
+	nemMegfelelt.length = 0; //kiürítjük a nemMegfelelt tömböt
 	for(var i= 0; i<T.length;i++){//kiválogatjuk a 42 alatti számokat és külön elrakjuk a nem 42 alatti számokat is
-		if(T[i]<hatarertek){
+		if(T[i]<hatarertek){//Ha a tömb i-dik eleme kisebb a határértéknél, akkor...
 			megfelelt.push(T[i]); //Számok beírása a megfelelt tömbbe
-		}else{
+    }
+    else{
 			nemMegfelelt.push(T[i]); //Számok beírása a nemMegfelelt tömbbe
 		}
-
 	}
 	kiir("Szétválogatás tétele: ");
 	kiir("Megfelelt számok: " + megfelelt);
