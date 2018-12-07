@@ -5,17 +5,11 @@ function vel(a,b){
 
 function kiir(u){
 	var x = document.getElementById("hazi"); //elkérjük a textareat, mert egyszerűbb az x-et beírni mint a document.getElementById-t
-	if(u==""){
-		x.value += "\n"; //ha üres, akkor csak egy sortörést ad a textareanak
-	}
-
-	else{
-		x.value += u + "\n"; //ha nem üres, akkor hozzáadja az üzenetet a textareahoz, majd sortörés
-	}
+	x.value += u + "\n"; //hozzáadjuk az üzenetet a textareához
 }
 
 function helyiertek_1(){//adjuk össze egy random szám számjegyeit addig, amíg nem kapunk egyetlen számjegyet
-	var n = vel(100,999);
+	var n = vel(100,999);//100 és 999 között véletlenszerű szám
 	var n_temp = Math.floor(n); //kerekítjük a véletlenszerű számot
 	kiir("A háromjegyű szám: " + n_temp);
 
@@ -45,7 +39,7 @@ function helyiertek_1(){//adjuk össze egy random szám számjegyeit addig, amí
 		}
 
 function helyiertek_2(){//háromjegyű számból négyjegyűt úgy, hogy a középső számjegyet megduplázzuk
-	var n = vel(100,999);
+	var n = vel(100,999);//véletlenszerű szám 100 és 999 között
 
 	var szazas = Math.floor(n/100); //n-nek a százas helyi értéke
 
@@ -72,7 +66,7 @@ function elso(){//ötre végződő számok
 }
 
 function helyiertek_3(){
-  var n = vel(1000,9999) //gondolom egyértelmű
+  var n = vel(1000,9999); //gondolom már egyértelmű
   kiir("A négyjegyű szám: " + n);
 
   var ezres = Math.floor(n/1000); //ezeket már korábban lejegyeztem
@@ -93,111 +87,135 @@ function helyiertek_3(){
 }
 
 function tombok2(){
-  var tomb2 = [];
+  var tomb2 = []; //Létrehozunk egy üres tömböt
   for(i=0;i<10;i++){
-    tomb2.push(vel(1,1000));
+    tomb2.push(vel(1,1000));//feltöltjük 10 darab véletlen számmal 1 és 1000 között
   }
   kiir("Második tömb: " + tomb2 + "\n");
 }
 
 function tombok3(){
-  var tomb3 = [];
+  var tomb3 = [];//Létrehozunk egy üres tömböt
   for(i=0;i<10;i++){
-    tomb3.push(vel(1,100));
+    tomb3.push(vel(1,100));//feltöltjük 10 darab véletlen számmal 1 és 100 között
   }
   kiir("Harmadik tömb: " + tomb3 + "\n");
 }
 
 function osszefesules(){
-  var t = [];
+  var t = [];//ebbe a tömbbe fognak kerülni az első és második tömbből összefésült számok
   var index = 0;
 
-  var t1 = [];
+  var t1 = [];//első tömb
   for(i=0;i<10;i++){
-    t1.push(vel(1,1000));
+    t1.push(vel(1,1000));//10 darab 1 és 1000 közötti szám
   }
-  var t2 = [];
+  var t2 = [];//második tömb
   for(i=0;i<10;i++){
-    t2.push(vel(1,100));
+    t2.push(vel(1,100));//10 darab 1 és 100 közötti szám
   }
 
   for(i=0;i<t1.length;i++){
     if(!t.includes(t1[i])){
-      t[index++] = t1[i];
+      t[index++] = t1[i];//ha a t tömbben NINCS bent a t1 i-dik eleme, akkor adja hozzá
     }
   }
 
   for(i=0;i<t2.length;i++){
     if(!t.includes(t2[i])){
-      t[index++] = t2[i];
+      t[index++] = t2[i];//ha a t tömbben NINCS bent a t2 i-dik eleme, akkor adja hozzá
     }
   }
   kiir("Összefésült tömb: " + t + "\n");
 }
 
-function metszet(){
-  var t = [];
+function metszetMagyarazas(){
+  var t = [];//ebbe fogjuk belerakni a közös számokat
   var index = 0;
 
-  var t1 = [];
+  var t1 = [];//első tömb
   for(i=0;i<10;i++){
-    t1.push(vel(1,1000));
+    t1.push(vel(1,1000));//feltöltjük 10 darab véletlen számmal 1 és 1000 között
   }
-  var t2 = [];
+  var t2 = [];//második tömb
   for(i=0;i<10;i++){
-    t2.push(vel(1,100));
+    t2.push(vel(1,100));//feltöltjük 10 darab véletlen számmal 1 és 100 között
   }
 
   for(i=0;i<t1.length;i++){
-    if(!t.includes(t1[i]) && !t.includes(t2[i])){
-      t[index++] = t1[i];
+    if(!t.includes(t1[i]) && !t.includes(t2[i])){//ha mind a 2 tömbben bent van ugyanaz a szám
+      t[index++] = t1[i];//akkor írjuk ki
     }
   }
   kiir("Metszet: " + t + "\n");
 }
 
-function lotto(){
-  //Ötös lottó
-  var lTomb = [];
-  var index = 0;
-
-  kiir("A géppel kihúzott lottószámok: ");
-
-  for(i=0;i<5;i++){
-    lTomb += vel(1,90);
-
-    if(i<4){
-      kiir(lTomb[i] + ", ");
-    }
-    else{
-      kiir(lTomb[i]);
-    }
-  }
+function metszet(t1,t2){
+	var t = [];//üres tömb
+	var index = 0;//érthető...
+	for(var i=0;i<t1.length;i++){
+		if (t2.includes(t1[i]) && !t.includes(t1[i])){//ha a második megadott tömbben bent van a t1 i-dik eleme, akkor...
+			t[index++] = t1[i];// adja hozzá a t tömbhöz
+		}		
+	}
+	return t;//adjuk vissza a t tömböt	
 }
 
-function keziLotto(){
-  var lTomb = [];
-  var index = 0;
-  var temp = document.getElementById("be");
-  var temp2;
-  if(temp.value==""){
-    kiir("Adjon meg 5 számot!" + "\n");
-  }
+function lotto(){//5-ös lottó JavaScriptben, az első húzás géppel történik, a második őedig kézzel
+	var szamok = document.getElementById("be").value;
+	if (szamok.length > 0 &&szamok.indexOf(",")> -1 && szamok.split(",").length == 5){
+		var valasztottSzamok = lottoSzamokPassed(szamok.split(","));
+		if (valasztottSzamok.length != 5){//ha nem 5 szám van, akkor hibás számokat adott meg a felhasználó
+			kiir("Hibás számokat adtál meg!" + "\n");
+		}
+		else{//ha pedig 5 számot adott meg, akkor...
+			eredmeny = lottoSzamokGeneralasa(5);//5 lottószám generálása
+			talalatok = metszet(valasztottSzamok,eredmeny);//az eltalált számok
+      kiir("A gép által kihúzott számok: " + eredmeny);
+      if(talalatok==""){//ha nincs találat, írja ki
+        kiir("Sajnos nem találtál el egy számot sem." + "\n");
+      }
+      else{
+        kiir("Gratulálok! " + talalatok.length + " számot találtál el.");
+        kiir("Az eltalált számok: " + talalatok + "\n");
+      }
+			
+		}
+	}
+	else
+		kiir("Hibás számokat adtál meg!" + "\n");
+		
+}
 
-  else{
-    var tempT = [];
-    temp.value.replace(/blue/gi, "");
-    tempT += temp.value;
-    if(tempT.includes("undefined")){
-      kiir("Kevés számot adott meg!" + "\n");
-      }
-    else{
-      kiir("A kézi lottó nyerőszámai: " +);
-      }
+    //GÉPI LOTTÓ ELEJE
+    function lottoSzamokGeneralasa(tipus){//a típus az lehet ötös, hatos, vagy hatszázezerkilencvenkettes lottó is
+      var t = [];//üres tömb, ebbe jönnek a számok
+      var index = 0;//érthető..
+      var n = 0;//ez lesz a véletéen számunk
+      do{//hátultesztelős ciklussal futtassuk le
+        n= vel(1,90);//létrehozunk egy véletlen számot 1 és 90 között (típus) alkalommal
+        if (!t.includes(n)){
+          t[index++] = n;//ha nincs benne a tömbben, hozzáadjuk
+          
+        }		
+      }while(index<tipus);//addig csinálja a ciklust, amíg a típus (ez esetben 5) alatt van
+      return t;//adjuk vissza a t tömböt, amit a következő metódusban szemügy alá veszünk
     }
-    kiir("\n");
-  }
 
+    function lottoSzamokPassed(t){//a legenerált lottószámokat fogjuk megvizsgálni
+      var n = 0;//kezdőértékünk legyen 0
+      var tomb = [];//üres tömb
+      var index = 0;//érthető..
+      for(var i=0;i<t.length;i++){
+        n = parseInt(t[i]);//számmá alakítjuk a tömböt
+        if (n==NaN || n<=0 || n>90)//ha betű, 0-nál kisebb-egyenlő szám vagy 90-nél nagyobb szám szerepel benne, akkor ne adjon vissza semmit
+          return null;
+        else if (!tomb.includes(n))//ha a tömbben nincs benne az n, akkor
+          tomb[index++] = n;//rakja bele a tömbbe
+      }	
+      return tomb;//adja vissza a tömböt
+    }
+    //GÉPI LOTTÓ VÉGE
 
 //PROGRAMOZÁS ELMÉLET (BECK SÁNDOR)
 
