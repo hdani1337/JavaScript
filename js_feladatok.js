@@ -150,7 +150,7 @@ function metszetMagyarazas(){
   kiir("Metszet: " + t + "\n");
 }
 
-function metszet(t1,t2){
+function metszet(t1,t2){//csak a lottó miatt definiáltam, hogy megtudjam ott is hívni
 	var t = [];//üres tömb
 	var index = 0;//érthető...
 	for(var i=0;i<t1.length;i++){
@@ -164,7 +164,8 @@ function metszet(t1,t2){
 function lotto(){//5-ös lottó JavaScriptben, az első húzás géppel történik, a második őedig kézzel
 	var szamok = document.getElementById("be").value;//elkérjük az input mezőnk értékét
 	if (szamok.length > 0 && szamok.indexOf(",") > -1 && szamok.split(",").length == 5){
-		var valasztottSzamok = lottoSzamokPassed(szamok.split(","));
+    //Ha az input mezőbe megadott érték hossza nagyobb 0-nál, a vessző indexe nagyobb -1-nél (tehát a vessző előtt van szám) és a tagolt számok hossza egyenlő öttel (mert ötös lottó), akkor...
+		var valasztottSzamok = lottoSzamokPassed(szamok.split(","));//Széttagolja a számokat, majd megvizsgálja őket, hogy megfelelnek e az igényeinknek, ezek vannak leírva a lottoSzamokPassed metódusban
 		if (valasztottSzamok.length != 5){//ha nem 5 szám van, akkor hibás számokat adott meg a felhasználó
 			kiir("Hibás számokat adtál meg!" + "\n");
 		}
@@ -200,6 +201,7 @@ function lotto(){//5-ös lottó JavaScriptben, az első húzás géppel történ
         }		
       }while(index<tipus);//addig csinálja a ciklust, amíg a típus (ez esetben 5) alatt van
       return t;//adjuk vissza a t tömböt, amit a következő metódusban szemügy alá veszünk
+      //Tehát. Generáljunk 1 és 90 közötti számokat addig, amíg nem lesz 5 különböző számunk.
     }
 
     function lottoSzamokPassed(t){//a legenerált lottószámokat fogjuk megvizsgálni
@@ -207,15 +209,19 @@ function lotto(){//5-ös lottó JavaScriptben, az első húzás géppel történ
       var tomb = [];//üres tömb
       var index = 0;//érthető..
       for(var i=0;i<t.length;i++){
-        n = parseInt(t[i]);//számmá alakítjuk a tömböt
-        if (n==NaN || n<=0 || n>90){//ha betű, 0-nál kisebb-egyenlő szám vagy 90-nél nagyobb szám szerepel benne, akkor ne adjon vissza semmit
+        n = parseInt(t[i]);//számmá alakítjuk a tömb i-dik elemét
+        if (n==NaN || n<=0 || n>90){//ha betű, 0-nál kisebb-egyenlő szám vagy 90-nél nagyobb szám szerepel benne, akkor adjon vissza null-t
           return null;
         }
         else if (!tomb.includes(n)){//ha a tömbben nincs benne az n, akkor
           tomb[index++] = n;//rakja bele a tömbbe
+          //Fontos! változó++-t kell megadni indexnek, mert ha az i-t adjuk meg, akkor elfog csúszni és hülyeségeket fog kiadni
         }
       }	
       return tomb;//adja vissza a tömböt
+      //Tehát. Mivel szöveg típusa van a tömb elemeinek, ezért számmá alakítjuk parseInt használatával. Ha a tömb egyik eleme szöveg, akkor NaN lesz belőle, és mivel ötös lóttóról beszélünk, ezért =>
+      //a számok 0 és 90 között lehetnek. Ha a tömb i-dik eleme teljesül valamelyik feltételnek, tehát szöveg van az elemben vagy nem tartozik a 0<x<90 intervallumba, akkor hibás értékeket adott meg a felhasználó
+      //Ha nem felel meg az egyik feltételnek sem, akkor adott meg helyes értékeket, mivel áttudtuk alakítani számmá és 0 és 90 között van.
     }
     //GÉPI LOTTÓ METÓDUSAINAK VÉGE
 
