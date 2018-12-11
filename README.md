@@ -2,7 +2,7 @@
 JavaScript feladatok gyűjteménye
 
 Ebbe a README-be csak a feladatok leírása vannak kigyűjtve. Minden kód és komment bent van a js_feladatok.js fájlban.
-
+-------------------------
 Gyakorlat: 
 
 1. Generáljunk egy véletlenszerű számot 100 és 999 között, majd adjuk össze a számjegyeket
@@ -29,3 +29,6 @@ Elmélet:
 7. Kiválogatjuk a 42 (élet értelme) alatti számokat (Kiválogatás tétele)
 8. Kiválogatjuk a 42 (élet értelme) alatti számokat egy másik módszerrel (Kiválogatás tétele)
 9. Szétválogatjuk, hogy melyik szám felelt meg a feltételnek és melyik nem (Szétválogatás tétele)
+-------------------------
+Sok szerencsét!
+-------------------------
