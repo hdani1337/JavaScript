@@ -1,7 +1,7 @@
 # hdani1337-JavaScript
 JavaScript feladatok gyűjteménye
 
-Ide csak a feladatok vannak kigyűjtve, minden információ és komment bent van a JavaScriptben. 
+Ebbe a README-be csak a feladatok leírása vannak kigyűjtve. Minden kód és komment bent van a js_feladatok.js fájlban.
 
 Gyakorlat: 
 
@@ -14,6 +14,8 @@ Gyakorlat:
 7. Két tömb összefésülése
 8. Két tömb metszete
 9. Lottó
+
+-------------------------
 
 Elmélet:
 
