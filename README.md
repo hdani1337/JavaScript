@@ -14,8 +14,8 @@ Gyakorlat:
   7. Két tömb összefésülése
   8. Két tömb metszete
   9. Hozzunk létre egy tömböt 6 fix elemmel, majd mindig adjunk hozzá 15 random elemet
-  10. A felső input mezőbe írt szám benne van a tömbben?
-  11. Lottó
+   10. A felső input mezőbe írt szám benne van a tömbben?
+   11. Lottó
 
 -------------------------
 
