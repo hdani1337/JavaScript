@@ -13,7 +13,9 @@ Gyakorlat:
 6. Töltsünk fel egy tömböt 10 darab 1 és 100 közötti véletlen számmal
 7. Két tömb összefésülése
 8. Két tömb metszete
-9. Lottó
+9. Hozzunk létre egy tömböt 6 fix elemmel, majd mindig adjunk hozzá 15 random elemet
+10. A felső input mezőbe írt szám benne van a tömbben?
+11. Lottó
 
 -------------------------
 

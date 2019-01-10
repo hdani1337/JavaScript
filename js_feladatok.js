@@ -225,6 +225,92 @@ function lotto(){//5-ös lottó JavaScriptben, az első húzás géppel történ
     }
     //GÉPI LOTTÓ METÓDUSAINAK VÉGE
 
+var tombForMennyiNulla = [2,36,7,8,9,123]; //Csinálunk még egy tömböt, mert miért ne
+
+function tombRandom(){//rakunk még bele 15 random számot
+  for(i=0;i<15;i++){
+    tombForMennyiNulla.push(vel(1,100));
+  }
+
+  kiirTombNulla(tombForMennyiNulla, "A tömb elemei annyi számjeggyel, amennyi a legnagyobbnak van: ");//kiírjuk a tömbkiírrel, amit csak ehhez a feladathoz csinálunk
+}
+
+function tombBenneVan(){//benne van e a szám a tombForMennyiNulla tömbben, amit a textarea feletti input mezőbe írunk
+  var keresendo = document.getElementById("beNulla").value;//elkérjük az inputot
+
+  if(keresendo == "Adj meg egy számot..." || keresendo.length == 0){//ha az input mezőben az alap szöveg van, vagy üres, akkor adj meg egy számot
+    kiir("Adj meg egy számot!" + "\n");
+  }
+
+  else{
+    var benne = false;//legyen egy boolean hamis értékkel
+    var szam = parseInt(keresendo);//legyen egy szám, ami az inpute parseIntje (input tartalma számmá alakítva, mivel alapból string van benne)
+
+    for(i=0;i<tombForMennyiNulla.length;i++){//tombForMennyiNulla végigjárása
+      if(tombForMennyiNulla[i] == szam){//ha az i-dik elem egyenlő a beírt számmal (ha benne van)
+        benne = true;//akkor a boolean legyen igaz
+        break;//álljon meg a ciklus
+      }
+    }
+  }
+      
+  if(szam == undefined || isNaN(szam) == true){//ha a beírt érték nem szám
+    if(keresendo != "Adj meg egy számot..." && keresendo.length !=0){//ha a beírt érték nem az alapszöveg és nem üres az input, akkor is helytelen érték
+      kiir("Helytelen értéket adtál meg!" + "\n");
+    }
+  }
+  
+  else{
+    if(benne){//ha a boolean igaz, akkor írjuk ki, hogy a szám benne van
+      kiir(szam + " benne van!" + "\n");
+    }
+
+    if(!benne){//ha pedig a boolean nem igaz, akkor írjuk ki, hogy a szám nincs benne
+      if(szam != NaN){
+        kiir(szam + " nincs benne!" + "\n");
+      }
+    } 
+  } 
+}
+
+function kiirTombNulla(temp, szoveg){
+  var ki = document.getElementById("hazi");//elkérjük a textareat
+  ki.value += szoveg + "\n";//kiírjuk a szöveget, majd sortörés
+  var sortores = 0;//sortörés (vagy sörtörés, ahogy tetszik), ami legyen 1
+
+  var maximum = max(temp);//a temp itt a tömb lesz, ez abból adja meg a legnagyobb számot
+  var maximumHossz = maximum.toString().length;//nézzük meg, hogy milyen hosszú a legnagyobb szám (hány számjegyű)
+
+  for(i=0;i<temp.length;i++){//járjuk végig a tömböt
+    var nulla = "";//legyen egy üres nulla string
+    for(k=0;k<(maximumHossz-temp[i].toString().length);k++){
+      nulla += "0";//ha a (maximumHossz - tömb i-dik eleme hossza) kisebb, mint a k, akkor növelem a 0-k számát
+    }
+
+    ki.value += nulla + temp[i] + " ";//kiírom a nullákat, és a számot
+    sortores++;
+
+    if(sortores%16==0){
+      ki.value += "\n";//16 számonként sortörés
+    }
+  }
+
+  ki.value += "\n" + "\n";//két sortörés a végére
+
+}
+
+function max(temp){
+  var max = 0;//kezdetben a maximum legyen 0
+
+  for(i=0;i<temp[i];i++){//végigjárom a megadott tömböt
+    if(max<temp[i]){//ha a maximum kisebb, mint a megadott tömb i-dik eleme, akkor
+      max = temp[i]//a maximum legyen annyi (előbb utóbb nem lesz kisebb egy számnál sem, így ő lesz a legnagyobb)
+    }
+  }
+
+  return max;//adjuk vissza a legnagyobb számot
+}
+
 
 //PROGRAMOZÁS ELMÉLET (BECK SÁNDOR)
 

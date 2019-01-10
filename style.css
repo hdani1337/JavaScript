@@ -5,9 +5,10 @@ body{
 
 #hazi{
     position: absolute;
-    height: 97%;
+    height: 95%;
     width: 35%;
-    top: 10px;
+    top: 35px;
+    left: 10px;
     resize: none;
     background-image: linear-gradient(#cccccc,#a6a6a6);
     font-family: 'Trebuchet MS';
@@ -20,10 +21,19 @@ h1{
     font-family: 'Trebuchet MS';
 }
 
+#marancs{
+    position: absolute;
+    left: 40%;
+    top: 60px;
+}
+
+#beck{
+    position: absolute;
+    left: 75%;
+    top: 60px;
+}
+
 button{
-    position: relative;
-    left: 37%;
-    top: 40px;
     background-image: linear-gradient(#ccffff,#e6ffff);
     border: 2px solid #b3ffff;
 }
@@ -34,15 +44,25 @@ button:hover{
 
 p{
 	position: relative;
-	left: 36.91%;
-	width: 40%;
+	width: 100%;
 	top: 6%;
 	font-size: 160%;
 	font-family: Trebuchet MS;
 }
 
-#be{
-  position: absolute;
-  left: 41%;
+#marancs #be{
+  position: relative;
   top: 58.2%;
+}
+
+#clearB{
+    position: absolute;
+    left: 190px;
+    top: 7.5px;
+}
+
+#beNulla{
+    position: absolute;
+    left: 10px;
+    top: 7.5px;
 }

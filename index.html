@@ -11,65 +11,80 @@
 
     <body>
     <h1>JavaScript Feladatok (10. évfolyam)</h1>
+    <input id="beNulla" value="Adj meg egy számot...">
     <textarea id="hazi" disabled></textarea>
-    <br>
-	<p>Marancsics Tamás (Gyakorlat)</p>
-    <button onclick="helyiertek_1()">Háromjegyű szám számjegyeinek összege</button>
-    <br>
-    <br>
-    <button onclick="helyiertek_2()">Háromjegyű számból négyjegyű szám</button>
-    <br>
-    <br>
-    <button onclick="elso()">Ötre végződő háromjegyű számok</button>
-    <br>
-    <br>
-    <button onclick="helyiertek_3()">Négyjegyű szám számjegyeinek összege</button>
-    <br>
-    <br>
-    <button onclick="tombok2()">1 és 1000 között véletlen számokkal feltöltött tömb</button>
-    <br>
-    <br>
-    <button onclick="tombok3()">1 és 100 között véletlen számokkal feltöltött tömb</button>
-    <br>
-    <br>
-    <button onclick="osszefesules()">Két tömb összefésülése</button>
-    <br>
-    <br>
-    <button onclick="metszetMagyarazas()">Két tömb metszete</button>
-    <br>
-    <br>
-    <button onclick="lotto()">Lottó</button>
-    <input id="be" value="Lottó számok megadása...">
-    <br>
-    <br>
-	<p>Beck Sándor (Elmélet)</p>
-    <button onclick="tombKiir(szamokT)">Tömb elemeinek kiírása</button>
-    <br>
-    <br>
-    <button onclick="osszegzes(szamokT)">Tömb elemeinek összeadása</button>
-    <br>
-    <br>
-    <button onclick="elemSzam(szamokT)">Tömb elemeinek darabszáma</button>
-    <br>
-    <br>
-    <button onclick="megszamlalas(szamokT)">Tömb elemeinek darabszáma egy feltétel alapján</button>
-    <br>
-    <br>
-    <button onclick="eldontes(szamokT)">Benne van az adott szám a tömbben?</button>
-    <br>
-    <br>
-    <button onclick="kivalasztas(szamokT)">A keresendő szám pozíciója</button>
-	<br>
-    <br>
-    <button onclick="kivalogatas(szamokT)">Kiválogatás</button>
-	<br>
-    <br>
-    <button onclick="kivalogatas2(szamokT)">Kiválogatás 2</button>
-	<br>
-    <br>
-    <button onclick="szetvalogatas(szamokT)">Szétválogatás</button>
-    <br>
-    <br>
-    <button onclick="window.location.reload();">Textarea kiürítése (F5)</button>
+
+    <div id="marancs">
+        <center>
+            <p>Marancsics Tamás (Gyakorlat)</p>
+            <button onclick="helyiertek_1()">Háromjegyű szám számjegyeinek összege</button>
+                <br>
+                <br>
+            <button onclick="helyiertek_2()">Háromjegyű számból négyjegyű szám</button>
+                <br>
+                <br>
+            <button onclick="elso()">Ötre végződő háromjegyű számok</button>
+                <br>
+                <br>
+            <button onclick="helyiertek_3()">Négyjegyű szám számjegyeinek összege</button>
+                <br>
+                <br>
+            <button onclick="tombok2()">1 és 1000 között véletlen számokkal feltöltött tömb</button>
+                <br>
+                <br>
+            <button onclick="tombok3()">1 és 100 között véletlen számokkal feltöltött tömb</button>
+                <br>
+                <br>
+            <button onclick="osszefesules()">Két tömb összefésülése</button>
+                <br>
+                <br>
+            <button onclick="metszetMagyarazas()">Két tömb metszete</button> 
+                <br>
+                <br>
+            <button onclick="tombRandom()">Tömb 6 elemmel + 15 randommal</button>
+                <br>
+                <br>
+            <button onclick="tombBenneVan()">Benne van e a kért szám az előző tömbben</button>
+                <br>
+                <br>
+            <button onclick="lotto()">Lottó</button>
+            <br>
+            <input id="be" value="Lottó számok megadása...">
+        </center>
+    </div>
+
+    <div id="beck">
+        <center>
+            <p>Beck Sándor (Elmélet)</p>
+            <button onclick="tombKiir(szamokT)">Tömb elemeinek kiírása</button>
+                <br>
+                <br>
+            <button onclick="osszegzes(szamokT)">Tömb elemeinek összeadása</button>
+                <br>
+                <br>
+            <button onclick="elemSzam(szamokT)">Tömb elemeinek darabszáma</button>
+                <br>
+                <br>
+            <button onclick="megszamlalas(szamokT)">Tömb elemeinek darabszáma egy feltétel alapján</button>
+                <br>
+                <br>
+            <button onclick="eldontes(szamokT)">Benne van az adott szám a tömbben?</button>
+                <br>
+                <br>
+            <button onclick="kivalasztas(szamokT)">A keresendő szám pozíciója</button>
+                <br>
+                <br>
+            <button onclick="kivalogatas(szamokT)">Kiválogatás</button>
+                <br>
+                <br>
+            <button onclick="kivalogatas2(szamokT)">Kiválogatás 2</button>
+                <br>
+                <br>
+            <button onclick="szetvalogatas(szamokT)">Szétválogatás</button>
+        </center>
+    </div>
+        
+    <button onclick="window.location.reload();" id="clearB">Textarea kiürítése (F5)</button>
+    
     </body>
 </html>
