@@ -33,3 +33,4 @@ Elmélet:
 -------------------------
 Sok szerencsét!
 -------------------------
+2019.02.03: Archiválom a repositoryt. Többet már nem fogok rajta módosítani, mivel többet már nem foglalkozunk a JavaScripttel.
